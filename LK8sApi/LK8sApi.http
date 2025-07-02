@@ -1,0 +1,6 @@
+@LK8sApi_HostAddress = http://localhost:5001
+
+GET {{LK8sApi_HostAddress}}/SampleApi/
+Accept: application/json
+
+###
