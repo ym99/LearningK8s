@@ -1,0 +1,18 @@
+services:
+  sample-api:
+    build: ./LK8sApi
+    ports:
+      - "5001:5001"
+    networks:
+      - sample-network
+    
+  sample-app:
+    build: ./LK8sApp
+    ports:
+      - "5002:5002"
+    networks:
+      - sample-network
+
+networks:
+  app-network:
+    driver: bridge
