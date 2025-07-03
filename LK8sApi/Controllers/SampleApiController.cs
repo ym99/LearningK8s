@@ -8,11 +8,13 @@ namespace LK8sApi.Controllers;
 public class SampleApiController : ControllerBase
 {
     private readonly ILogger<SampleApiController> _logger;
+    private readonly IConfiguration _configuration;
     private readonly HttpClient _httpClient;
 
-    public SampleApiController(ILogger<SampleApiController> logger)
+    public SampleApiController(ILogger<SampleApiController> logger, IConfiguration configuration)
     {
         _logger = logger;
+        _configuration = configuration;
         _httpClient = new HttpClient();
     }
 
@@ -32,7 +34,9 @@ public class SampleApiController : ControllerBase
 
     public async Task<SampleAppModel> GetSampleAppModelAsync()
     {
-        var response = await _httpClient.GetAsync("http://localhost:5002/SampleApp");
+        var sampleAppUrl = _configuration["SampleAppUrl"];
+        
+        var response = await _httpClient.GetAsync(sampleAppUrl);
         response.EnsureSuccessStatusCode();
         
         var json = await response.Content.ReadAsStringAsync();
