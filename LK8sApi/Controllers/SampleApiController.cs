@@ -25,7 +25,7 @@ public class SampleApiController : ControllerBase
 
         var result = new SampleApiModel
         {
-            Name = "Sample API Model",
+            Name = $"Sample API Model {DateTime.Now}",
             CallToApp = sampleAppModel.Name
         };
 
@@ -42,7 +42,7 @@ public class SampleApiController : ControllerBase
         var json = await response.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<SampleAppModel>(json) ?? new SampleAppModel
         {
-            Name = "Call failed"
+            Name = $"Call failed {DateTime.Now}"
         };
     }
 }

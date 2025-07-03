@@ -18,7 +18,7 @@ public class SampleAppController : ControllerBase
     {
         var result = new SampleAppModel
         {
-            Name = "Sample App Model"
+            Name = $"Sample App Model {DateTime.Now}"
         };
 
         return result;
