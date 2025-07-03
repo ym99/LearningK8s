@@ -1,0 +1,6 @@
+@LK8sApp_HostAddress = http://localhost:5140
+
+GET {{LK8sApp_HostAddress}}/sampleappmodel/
+Accept: application/json
+
+###
