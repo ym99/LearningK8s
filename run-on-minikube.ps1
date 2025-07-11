@@ -1,6 +1,6 @@
 function Set-Tag([string]$k8sYaml, [string]$tag)
 {
-   $tmpFileName = "$($k8sYaml).tmp"
+   $tmpFileName = New-TemporaryFile
 
    Get-Content $k8sYaml | ForEach-Object { $_ -replace '[$]{TAG}', $tag } | Set-Content $tmpFileName
 
