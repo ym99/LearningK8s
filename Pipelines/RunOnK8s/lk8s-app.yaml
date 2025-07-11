@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lk8s-app-service
+spec:
+  selector:
+    app: lk8s-app
+  ports:
+  - port: 5002
+    targetPort: 5002
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lk8s-app-deployment
+spec:
+  selector:
+    matchLabels:
+      app: lk8s-app
+  template:
+    metadata:
+      labels:
+        app: lk8s-app
+    spec:
+      containers:
+      - name: lk8s-app-container
+        image: ym1999/lk8s-app:${TAG}
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 5002
