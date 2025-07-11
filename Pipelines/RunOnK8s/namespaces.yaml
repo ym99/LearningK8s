@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lk8s-web
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lk8s-app
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lk8s-data

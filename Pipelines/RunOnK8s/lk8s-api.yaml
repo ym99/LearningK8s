@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: lk8s-api-service
+  namespace: lk8s-web
 spec:
   type: ClusterIP
   selector:
@@ -13,7 +14,8 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lk8s-api-deployment
+  name: lk8s-api
+  namespace: lk8s-web
 spec:
   selector:
     matchLabels:

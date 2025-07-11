@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: lk8s-app-service
+  namespace: lk8s-app
 spec:
   selector:
     app: lk8s-app
@@ -12,7 +13,8 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lk8s-app-deployment
+  name: lk8s-app
+  namespace: lk8s-app
 spec:
   selector:
     matchLabels:
