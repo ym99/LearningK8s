@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: lk8s-api-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: lk8s-api
   ports:

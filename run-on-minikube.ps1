@@ -14,4 +14,7 @@ Push-Location .\Pipelines\RunOnK8s\
 kubectl apply -f (Set-Tag redis.yaml $version)
 kubectl apply -f (Set-Tag lk8s-app.yaml $version)
 kubectl apply -f (Set-Tag lk8s-api.yaml $version)
+kubectl apply -f (Set-Tag ingress.yaml $version)
 Pop-Location
+
+curl http://lk8s
